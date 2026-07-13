@@ -443,9 +443,39 @@
     .chip-deco { display: none; }
     .cs-img-pair .img-box, .cs-img-triple .img-box { min-height: auto; }
   }
+
+  /* ============ NAV ============ */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 32px 56px;
+    background: #0E1525;
+  }
+  .nav-home { font-size: 17px; font-weight: 500; color: #F4F2EC; }
+  .nav-links { display: flex; align-items: center; gap: 48px; }
+  .nav-links a { font-size: 17px; font-weight: 500; color: #F4F2EC; text-underline-offset: 6px; }
+  .nav-links a.active { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .nav { padding: 20px 24px; }
+    .nav-links { gap: 20px; }
+    .nav-home, .nav-links a { font-size: 14px; }
+  }
 </style>
 </head>
 <body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-home">Home</a>
+  <div class="nav-links">
+    <a href="case-studies.html" class="active">Case Studies</a>
+    <a href="about.html">About Me</a>
+    <a href="https://www.linkedin.com/in/avsarmodi/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+  </div>
+</nav>
 
 <!-- ============ KRAFT HEINZ ============ -->
 <section class="cs cs-kh" id="kraft-heinz">

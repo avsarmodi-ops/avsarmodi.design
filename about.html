@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Avsar Modi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FDFCFA;
+    --ink: #0E1525;
+    --ink-text: #F4F2EC;
+    --ink-text-dim: rgba(244,242,236,0.7);
+    --accent: #7FB8E0;
+    --clay: #B5552F;
+    --line-dark: rgba(244,242,236,0.14);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--ink);
+    color: var(--ink-text);
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; height: auto; display: block; }
+
+  /* ============ NAV ============ */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 32px 56px;
+    background: var(--ink);
+  }
+  .nav-home { font-size: 17px; font-weight: 500; color: var(--ink-text); }
+  .nav-links { display: flex; align-items: center; gap: 48px; }
+  .nav-links a { font-size: 17px; font-weight: 500; color: var(--ink-text); text-underline-offset: 6px; }
+  .nav-links a.active { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .nav { padding: 20px 24px; }
+    .nav-links { gap: 20px; }
+    .nav-home, .nav-links a { font-size: 14px; }
+  }
+
+  /* ============ ABOUT ============ */
+  .about-section { padding: 110px 56px 130px; }
+  .about-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .about-inner h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(34px, 4.5vw, 56px);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin-bottom: 40px;
+  }
+  .about-copy p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--ink-text-dim);
+    margin-bottom: 18px;
+  }
+  .about-copy a {
+    text-decoration: underline;
+  }
+  .about-copy a.co-kh { color: #C8102E; }
+  .about-copy a.co-sf { color: #00A1E0; }
+
+  /* ============ SCROLL ANIMATIONS ============ */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+  .fade-up.delay-1 { transition-delay: 0.1s; }
+
+  @media (max-width: 860px) {
+    .about-section { padding: 60px 24px 100px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-home">Home</a>
+  <div class="nav-links">
+    <a href="case-studies.html">Case Studies</a>
+    <a href="about.html" class="active">About Me</a>
+    <a href="https://www.linkedin.com/in/avsarmodi/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+  </div>
+</nav>
+
+<section class="about-section">
+  <div class="about-inner">
+    <h1 class="fade-up">Hi, I'm Avsar!</h1>
+    <div class="about-copy fade-up delay-1">
+      <p>I'm a Staff Product Designer with 10+ years building enterprise, B2B, and consumer products. I'm at my best framing the real problem behind the ask, then turning that into a story, whether that's a shipped product, an executive presentation, or a demo that makes a vision tangible.</p>
+      <p>I enjoy tackling complex challenges, aligning design with business needs, and bringing teams together to build impactful design.</p>
+      <p>Currently, at <a href="https://www.kraftheinzcompany.com/" target="_blank" rel="noopener noreferrer" class="co-kh">Kraft Heinz</a>, I lead the design of Virtual Store Walk, a real-time shelf analytics platform I took from early proof of concept to a tool used by 500+ sales team members weekly, replacing spreadsheets with live, actionable insight.</p>
+      <p>Before that, at <a href="https://www.salesforce.com/" target="_blank" rel="noopener noreferrer" class="co-sf">Salesforce</a>, I partnered with Fortune 500 customers across retail, travel, and hospitality, from a unified platform vision presented to the C-suite at PODS to a Las Vegas-themed prototype built in a single week for a resort casino executive.</p>
+      <p>Outside of work, I'm an explorer of all things well-designed—whether that's sleek packaging, inspiring interiors, or the perfect pair of sneakers. You'll often find me discovering new restaurants and bars or uncovering gems in and around Chicago.</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function() {
+    var els = document.querySelectorAll('.fade-up');
+    if (!els.length) return;
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    els.forEach(function(el) { observer.observe(el); });
+  })();
+</script>
+
+</body>
+</html>
