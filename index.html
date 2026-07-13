@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avsar Modi — Staff Product Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FDFCFA;
+    --paper-dim: #F6F4F0;
+    --ink: #0E1525;
+    --ink-card: rgba(255,255,255,0.04);
+    --ink-text: #F4F2EC;
+    --ink-text-dim: rgba(244,242,236,0.65);
+    --accent: #7FB8E0;
+    --clay: #B5552F;
+    --line: rgba(22,21,19,0.12);
+    --line-dark: rgba(244,242,236,0.14);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--paper);
+    color: #161513;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; height: auto; display: block; }
+
+  .section { padding: 130px 56px; position: relative; }
+  .section-inner { max-width: 1760px; margin: 0 auto; }
+
+  .eyebrow {
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 24px;
+  }
+
+  /* ============ HERO ============ */
+  .hero { background: var(--ink); color: var(--ink-text); }
+  .hero .eyebrow { color: var(--accent); margin-bottom: 28px; }
+
+  .hero-top-row {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    margin-bottom: 28px;
+  }
+  .hero-photo {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 1px solid var(--line-dark);
+  }
+  .hero-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(36px, 4.5vw, 80px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    color: var(--ink-text);
+  }
+  .hero h1 em { font-style: italic; color: var(--accent); }
+  .hero-sub {
+    font-size: 18px;
+    line-height: 1.65;
+    color: var(--ink-text-dim);
+    max-width: 680px;
+    margin-bottom: 52px;
+  }
+  .hero-meta {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    width: 100%;
+    font-size: 13px;
+    color: var(--ink-text-dim);
+  }
+  .hero-meta div { border-top: 1px solid var(--line-dark); padding-top: 12px; }
+  .hero-meta strong { display: block; color: var(--ink-text); font-size: 15px; font-weight: 600; margin-bottom: 2px; }
+
+  /* ============ LOGO WALL ============ */
+  .logo-wall { background: var(--paper); }
+  .logo-wall .eyebrow { color: var(--clay); }
+  .logo-wall-head { max-width: 820px; margin-bottom: 56px; }
+  .logo-wall-head h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(28px, 3.5vw, 42px);
+    line-height: 1.25;
+    color: #161513;
+  }
+  .logo-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0;
+  }
+  .logo-cell {
+    width: 20%;
+    height: 96px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 20px;
+  }
+  .logo-cell img {
+    width: 160px;
+    height: 56px;
+    object-fit: contain;
+    filter: grayscale(1) opacity(0.45);
+    transition: filter 0.25s;
+  }
+  .logo-cell:hover img { filter: grayscale(0) opacity(1); }
+
+  /* ============ POWERS ============ */
+  .powers { background: var(--ink); color: var(--ink-text); }
+  .powers .eyebrow { color: var(--accent); }
+  .powers-head { max-width: 820px; margin-bottom: 56px; }
+  .powers-head h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(28px, 3.5vw, 42px);
+    line-height: 1.25;
+    color: var(--ink-text);
+  }
+  .powers-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .power-card { background: rgba(255,255,255,0.04); padding: 40px 32px; border-radius: 8px; }
+  .power-visual {
+    width: 100%;
+    aspect-ratio: 4/3;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 24px;
+  }
+  .power-visual img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+  .power-num {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+  .power-card h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 22px;
+    margin-bottom: 12px;
+    line-height: 1.2;
+    color: var(--ink-text);
+  }
+  .power-card p { font-size: 15px; line-height: 1.7; color: var(--ink-text-dim); }
+
+  /* ============ QUOTE ============ */
+  .quote-section { background: var(--ink); text-align: center; padding-top: 0; }
+  .hero-quote {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(22px, 3vw, 36px);
+    line-height: 1.4;
+    color: var(--ink-text);
+    max-width: 820px;
+    margin: 0 auto 20px;
+    display: block;
+  }
+  .hero-quote-cite { font-size: 14px; font-weight: 600; color: var(--accent); letter-spacing: 0.04em; display: block; }
+
+  /* ============ CTA ============ */
+  .cs-teaser { background: var(--paper); text-align: center; }
+
+  /* ============ SCROLL ANIMATIONS ============ */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+  .fade-up.delay-1 { transition-delay: 0.1s; }
+  .fade-up.delay-2 { transition-delay: 0.2s; }
+  .fade-up.delay-3 { transition-delay: 0.3s; }
+
+  @media (max-width: 860px) {
+    .section { padding: 80px 24px; }
+    .hero-top-row { flex-direction: column; align-items: flex-start; gap: 20px; }
+    .hero-meta { grid-template-columns: 1fr; gap: 16px; }
+    .powers-grid { grid-template-columns: 1fr; }
+    .logo-cell { width: 33%; }
+  }
+</style>
+</head>
+<body>
+
+<section class="section hero">
+  <div class="section-inner">
+    <div class="eyebrow fade-up">Staff Product Designer</div>
+    <div class="hero-top-row fade-up delay-1">
+      <div class="hero-photo">
+        <img src="https://cdn.prod.website-files.com/6a2b3e51b1761fc5bf2f2bb8/6a4571455c55026a75909c9c_ChatGPT%20Image%20Jun%2030%2C%202026%2C%2008_47_05%20PM.png" alt="Avsar Modi">
+      </div>
+      <h1>I turn complex problems into <em>stories</em> that win over rooms full of executives.</h1>
+    </div>
+    <p class="hero-sub fade-up delay-2">11+ years designing enterprise, B2B, and consumer products at Kraft Heinz, Salesforce, and Microsoft, brought to life through strategic storytelling and strong visual craft.</p>
+    <div class="hero-meta fade-up delay-3">
+      <div><strong>11+ years</strong>Across enterprise & consumer</div>
+      <div><strong>0→1 to scale</strong>Proof of concept to shipped product</div>
+      <div><strong>C-suite to console</strong>Strategy through execution</div>
+    </div>
+  </div>
+</section>
+
+<section class="section logo-wall">
+  <div class="section-inner">
+    <div class="logo-wall-head fade-up">
+      <div class="eyebrow">Experience</div>
+      <h2>I've spent 11+ years across industries and companies.</h2>
+    </div>
+    <div class="logo-grid fade-up delay-1">
+      <div class="logo-cell"><img src="https://cdn.prod.website-files.com/6a2b3e51b1761fc5bf2f2bb8/6a46ba87d14a8ecce2a902ed_Salesforce_idN3OdcTG__0.svg" alt="Salesforce"></div>
+      <div class="logo-cell"><img src="https://cdn.prod.website-files.com/6a2b3e51b1761fc5bf2f2bb8/6a46ba873c1cd98908df4efd_Microsoft_Logo_0.svg" alt="Microsoft"></div>
+      <div class="logo-cell"><img src="https://cdn.prod.website-files.com/6a2b3e51b1761fc5bf2f2bb8/6a46ba86bc898270a06e6081_KraftHeinz.svg" alt="Kraft Heinz"></div>
+      <div class="logo-cell"><img src="https://cdn.prod.website-files.com/6a2b3e51b1761fc5bf2f2bb8/6a46ba867dd633a4926ec4a0_Adidas_Logo_0.svg" alt="Adidas"></div>
+      <div class="logo-cell"><img src="https://cdn.prod.website-files.com/6a2b3e51b1761fc5bf2f2bb8/6a46ba863518f112e497cdc0_Grainger_idyNyU92cl_0.svg" alt="Grainger"></div>
+      <div class="logo-cell"><img src="https://cdn.prod.website-files.com/6a2b3e51b1761fc5bf2f2bb8/6a46bdf7ca2bfab4b4bd145b_Columbia_Sportswear_idNdvh8Lx-_0.svg" alt="Columbia Sportswear"></div>
+      <div class="logo-cell"><img src="https://cdn.prod.website-files.com/6a2b3e51b1761fc5bf2f2bb8/6a46ba866acf0b5f116f37a5_Edwardian_hotels_logo.svg.webp" alt="Edwardian Hotels"></div>
+      <div class="logo-cell"><img src="https://cdn.prod.website-files.com/6a2b3e51b1761fc5bf2f2bb8/6a46ba8739e87c680ecf3d16_Kimberly-Clark_Logo_0.svg" alt="Kimberly-Clark"></div>
+      <div class="logo-cell"><img src="https://cdn.prod.website-files.com/6a2b3e51b1761fc5bf2f2bb8/6a46ba86565d7500ca7da5ac_coke-fl-logo-1.webp" alt="Coca-Cola"></div>
+      <div class="logo-cell"><img src="https://cdn.prod.website-files.com/6a2b3e51b1761fc5bf2f2bb8/6a46ba87e1389f203c93ef6e_The_Madison_Square_Garden_Company_logo.svg_.png" alt="Madison Square Garden"></div>
+      <div class="logo-cell"><img src="https://cdn.prod.website-files.com/6a2b3e51b1761fc5bf2f2bb8/6a46ba87eb3ac4b69f2b4c81_PODS_idJu8oxllA_1.svg" alt="PODS"></div>
+      <div class="logo-cell"><img src="https://cdn.prod.website-files.com/6a2b3e51b1761fc5bf2f2bb8/6a46ba873b3ac275b91e1c01_idhAPixS0s_1783019555344.png" alt="Irvine Company"></div>
+      <div class="logo-cell"><img src="https://cdn.prod.website-files.com/6a2b3e51b1761fc5bf2f2bb8/6a46ba8609192a01e20c3acd_BMC_Software_idiUwI94rm_0.svg" alt="BMC"></div>
+      <div class="logo-cell"><img src="https://cdn.prod.website-files.com/6a2b3e51b1761fc5bf2f2bb8/6a46ba863f63dad2588bfd73_IBM_logo.svg%20(1).webp" alt="IBM"></div>
+      <div class="logo-cell"><img src="https://cdn.prod.website-files.com/6a2b3e51b1761fc5bf2f2bb8/6a46ba86e1389f203c93ef48_GE_Appliances_idiBoFS0ED_0.svg" alt="GE Appliances"></div>
+      <div class="logo-cell"><img src="https://cdn.prod.website-files.com/6a2b3e51b1761fc5bf2f2bb8/6a46ba8685c8c76c2eda7d55_id35BPcAci_1783019713731.png" alt="UN Women"></div>
+      <div class="logo-cell"><img src="https://cdn.prod.website-files.com/6a2b3e51b1761fc5bf2f2bb8/6a46ba870a7fd2b1f6cf29e1_WeWork_idWff1DGS2_0.svg" alt="WeWork"></div>
+      <div class="logo-cell"><img src="https://cdn.prod.website-files.com/6a2b3e51b1761fc5bf2f2bb8/6a46ba8745c2af18fbab51ac_The_Container_Store_idxI6wbPDn_0.svg" alt="The Container Store"></div>
+      <div class="logo-cell"><img src="https://cdn.prod.website-files.com/6a2b3e51b1761fc5bf2f2bb8/6a46d3d153a35be685da10e8_Beam_Suntory_logo.svg.webp" alt="Beam Suntory"></div>
+      <div class="logo-cell"><img src="https://cdn.prod.website-files.com/6a2b3e51b1761fc5bf2f2bb8/6a46ba86df0a94ae763ff3a2_Ahold_Delhaize_idlNUhmgF8_0.svg" alt="Ahold Delhaize"></div>
+      <div class="logo-cell"><img src="https://cdn.prod.website-files.com/6a2b3e51b1761fc5bf2f2bb8/6a46ba87ee4fec190098b9a7_Saks_Fifth_Avenue_id8DTmgWQv_0.svg" alt="Saks Fifth Avenue"></div>
+      <div class="logo-cell"><img src="https://cdn.prod.website-files.com/6a2b3e51b1761fc5bf2f2bb8/6a46ba860a7fd2b1f6cf29ae_Build-A-Bear_idSRnbFj9T_0.svg" alt="Build-A-Bear"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section powers">
+  <div class="section-inner">
+    <div class="powers-head fade-up">
+      <div class="eyebrow">What I bring</div>
+      <h2>Three strengths, built over 11+ years.</h2>
+    </div>
+    <div class="powers-grid fade-up delay-1">
+      <div class="power-card">
+        <div class="power-visual"><img src="https://cdn.prod.website-files.com/6a2b3e51b1761fc5bf2f2bb8/6a4589038adc74294797c86b_Screenshot%202026-07-01%20at%204.36.50%E2%80%AFPM.png" alt="Opportunity framing"></div>
+        <div class="power-num">i.</div>
+        <h3>Opportunity framing</h3>
+        <p>Identifying the real problem behind the ask, then crafting strategic assets that build alignment, demonstrate thought leadership, and move teams to action.</p>
+      </div>
+      <div class="power-card">
+        <div class="power-visual"><img src="https://cdn.prod.website-files.com/6a2b3e51b1761fc5bf2f2bb8/6a4580ebe677ff5e1e15d56a_Screenshot%202026-07-01%20at%203.57.10%E2%80%AFPM.png" alt="Visioning and storytelling"></div>
+        <div class="power-num">ii.</div>
+        <h3>Visioning &amp; storytelling</h3>
+        <p>Turning complex ideas into compelling narratives, from executive presentations to product demo keynotes. I design high-fidelity prototypes that make a vision tangible.</p>
+      </div>
+      <div class="power-card">
+        <div class="power-visual"><img src="https://cdn.prod.website-files.com/6a2b3e51b1761fc5bf2f2bb8/6a4591eea46f6360616824dd_Screenshot%202026-07-01%20at%205.15.48%E2%80%AFPM.png" alt="End-to-end product design"></div>
+        <div class="power-num">iii.</div>
+        <h3>End-to-end product design</h3>
+        <p>Designing seamless experiences across enterprise, B2B, and consumer products, from early concept through shipped product, collaborating cross-functionally to drive real outcomes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section quote-section">
+  <div class="section-inner">
+    <blockquote class="hero-quote fade-up">"This solution aligns perfectly with our brand. I can easily see it integrating seamlessly into what we've already built."</blockquote>
+    <cite class="hero-quote-cite fade-up delay-1">— Chief Marketing Officer</cite>
+  </div>
+</section>
+
+<section class="section cs-teaser">
+  <div class="section-inner">
+    <div class="eyebrow fade-up" style="text-align:center; display:block; color: var(--clay);">Selected work</div>
+    <h2 class="fade-up delay-1" style="font-family:'Fraunces',serif; font-weight:500; font-size:clamp(32px,5vw,54px); margin:24px auto 0; max-width:700px; line-height:1.2; color:#161513; text-align:center;">Three projects. Three different rooms I had to win.</h2>
+  </div>
+</section>
+
+<script>
+  (function() {
+    var els = document.querySelectorAll('.fade-up');
+    if (!els.length) return;
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    els.forEach(function(el) { observer.observe(el); });
+  })();
+</script>
+
+</body>
+</html>
