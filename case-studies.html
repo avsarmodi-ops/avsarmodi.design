@@ -446,9 +446,6 @@
 
   /* ============ NAV ============ */
   .nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -464,9 +461,92 @@
     .nav-links { gap: 20px; }
     .nav-home, .nav-links a { font-size: 14px; }
   }
+
+  /* ============ PASSWORD GATE ============ */
+  .gate-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: #0E1525;
+    color: #F4F2EC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .gate-card { max-width: 420px; width: 100%; text-align: center; }
+  .gate-eyebrow {
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #7FB8E0;
+    margin-bottom: 20px;
+  }
+  .gate-card h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(28px, 4vw, 40px);
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+  .gate-sub {
+    font-size: 15px;
+    line-height: 1.6;
+    color: rgba(244,242,236,0.7);
+    margin-bottom: 32px;
+  }
+  .gate-form { display: flex; flex-direction: column; gap: 14px; }
+  .gate-input {
+    width: 100%;
+    padding: 14px 18px;
+    border-radius: 100px;
+    border: 1px solid rgba(244,242,236,0.25);
+    background: rgba(255,255,255,0.04);
+    color: #F4F2EC;
+    font-size: 15px;
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+  }
+  .gate-input::placeholder { color: rgba(244,242,236,0.4); }
+  .gate-input:focus { outline: none; border-color: #7FB8E0; }
+  .gate-submit {
+    padding: 14px 32px;
+    background: #F4F2EC;
+    color: #161513;
+    border: none;
+    border-radius: 100px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+  }
+  .gate-submit:hover { background: #B5552F; color: #F4F2EC; transform: translateY(-2px); }
+  .gate-error {
+    font-size: 13px;
+    color: #E8899B;
+    min-height: 18px;
+    visibility: hidden;
+  }
+  .gate-error.visible { visibility: visible; }
 </style>
 </head>
 <body>
+
+<div class="gate-overlay" id="password-gate">
+  <div class="gate-card">
+    <div class="gate-eyebrow">Case Studies</div>
+    <h1>This page is password protected.</h1>
+    <p class="gate-sub">Enter the password to view the case studies.</p>
+    <form class="gate-form" id="gate-form">
+      <input type="password" class="gate-input" id="gate-input" placeholder="Password" autocomplete="off" autofocus>
+      <p class="gate-error" id="gate-error">Incorrect password. Try again.</p>
+      <button type="submit" class="gate-submit">Unlock</button>
+    </form>
+  </div>
+</div>
+
+<div id="protected-content" style="display:none;">
 
 <nav class="nav">
   <a href="index.html" class="nav-home">Home</a>
@@ -806,6 +886,30 @@
       });
     }, { threshold: 0.12 });
     els.forEach(function(el) { observer.observe(el); });
+  })();
+</script>
+
+</div>
+
+<script>
+  (function() {
+    var PASSWORD = "hailcaesarsalad";
+    var gate = document.getElementById('password-gate');
+    var content = document.getElementById('protected-content');
+    var form = document.getElementById('gate-form');
+    var input = document.getElementById('gate-input');
+    var error = document.getElementById('gate-error');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      if (input.value === PASSWORD) {
+        gate.style.display = 'none';
+        content.style.display = '';
+      } else {
+        error.classList.add('visible');
+        input.value = '';
+        input.focus();
+      }
+    });
   })();
 </script>
 
